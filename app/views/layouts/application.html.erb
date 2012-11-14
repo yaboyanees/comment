@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Manage</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+ <li><a><%= link_to "Home", root_path %></a></li>
+ <% if can? :read, :all %>
+ <li><a><%= link_to "View Listings", rolluplisting_index_path %></a></li>
+ <li><a><%= link_to "Listing Create/Update", listings_path %></a></li>
+ <% else %>
+ <li><a><%= link_to "Listing Create/Update", listings_path %></a></li>
+ <% end %>
+<%= yield %>
+
+</body>
+</html>

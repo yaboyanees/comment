@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @listing.name %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @listing.content %>
+</p>
+
+<p>
+  <b>Desription:</b>
+  <%= @listing.desription %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @listing.address %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @listing.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @listing.state %>
+</p>
+
+<%= image_tag @listing.image_url(:thumb).to_s %>    
+    </div>  
+
+
+<%= link_to 'Edit', edit_listing_path(@listing) %> |
+<%= link_to 'Back', listings_path %>

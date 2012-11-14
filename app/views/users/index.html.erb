@@ -1,0 +1,58 @@
+<% if can? :manage, :all %>
+ <title>Users Index Page</title>
+<h3>All Users</h3>
+<div id="formsuserALL">
+<%= form_tag edit_individual_users_path do %>
+<div id="submituserALL">
+<%= submit_tag "Edit All Users" %>
+<p></p>
+</div>
+</div>
+<% @usersummary.each do |usersummary| %>
+<h2></h2>
+<div id='usercontainermain'>
+<div id='usersummarymain'>
+User Summary
+<p>Clients <%= usersummary.client %><br/>
+Managers <%= usersummary.manager %><br/>
+Employees <%= usersummary.employee %><br/>
+Admin <%= usersummary.hefe %><br/>
+</div>
+</div>
+<% end %>
+<table border= '1'>
+  <tr>
+    <th>Name</th>
+    <th>Role</th>
+    <th>Email</th>
+    <th>Phone Number</th>
+    <th>Sign-in Counter</th>
+    <th>Last Sign-in</th>
+    <th></th>  
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td align='center'><%= user.fullname %></td>
+    <td align= 'center'><%= user.role_name %></td>
+    <td align='center'><%= user.email %></td>
+    <td align='center'><%= user.phone %></td>
+    <td align='center'><%= user.sign_in_count %></td>
+    <td align='center'><%= user.last_sign_in_at %></td>
+    <td><%= link_to 'Remove', user, :method => :delete %></td>   
+ </tr>
+  <% end %>
+	</table>	
+<br />
+</div>
+<% end %>
+
+<% else %>
+<title>Unauthorized Access</title>
+<h3 align='center'>Unauthorized Access</h3>
+<div id="adminError"><p>You Are Not Authorized To View This Page!</p></div>
+<div id="submit">
+<%= link_to 'Get Me Out', root_path %>
+</div>
+<% end %>
+
